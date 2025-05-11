@@ -20,7 +20,13 @@ public class JoinService {
 
   public void joinProcess(JoinDTO joinDTO){
 
-    //DB에서 동일한 username 회원 중복여부 검증
+    // DB에서 동일한 username 회원 중복여부 검증
+    boolean isUser = userRepository.existsByUsername(joinDTO.getUsername());
+    if(isUser){
+      return;
+    }
+
+    // 가입 불가 문자 정규식 처리도 필요
 
     UserEntity data = new UserEntity();
 
