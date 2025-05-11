@@ -22,8 +22,8 @@ public class SecurityConfig {
   public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
     http
-        .authorizeHttpRequests((auth) -> auth                     // 람다식 작성, 특정 경로에 요청 허용 or 거부
-                .requestMatchers("/", "/login").permitAll()   // 특정 경로에 특정 작업 진행
+        .authorizeHttpRequests((auth) -> auth                                                            // 람다식 작성, 특정 경로에 요청 허용 or 거부
+                .requestMatchers("/", "/login","/loginProc","/join","/joinProc").permitAll()   // 특정 경로에 특정 작업 진행
                 // 모든 사용자에 한해 PermitAll -> 그냥 접근 가능
                 .requestMatchers("/admin").hasRole("ADMIN")
                 .requestMatchers("/mypage/**").hasAnyRole("USER", "ADMIN")
