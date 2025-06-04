@@ -37,8 +37,8 @@ public class SecurityConfig {
             .permitAll()                                          // 경로에 아무나 접근 가능
         );
 
-    http
-        .csrf((auth) -> auth.disable());                          // 사이트 위변조 방지 설정
+    //http
+    //    .csrf((auth) -> auth.disable());                          // 사이트 위변조 방지 설정
         // 토큰도 보내줘야 로그인 진행되는데 켜두면 토큰 발급을 해야하니까 잠시 꺼둠
 
     http
